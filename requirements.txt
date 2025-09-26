@@ -1,0 +1,4 @@
+# Create requirements.txt
+echo "fastapi==0.104.1" >> requirements.txt
+echo "uvicorn==0.24.0" >> requirements.txt
+echo "pydantic==2.5.0" >> requirements.txt
