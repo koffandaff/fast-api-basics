@@ -1,0 +1,14 @@
+API => Application Programming Interface
+	helps connects the backend to the frontend through endpoint 
+
+FastApi=> python's library that helps making of an api
+
+when to use => a lot of user and need high performance api to handle those requests 
+
+check the hello_world and to do code to know more
+* remember that for better code readability we need to use class in fastapi
+
+
+ TO run:
+1. basic way: uvicorn main:api (main is the file name)
+2. optimized way: fastapi dev filename.py
