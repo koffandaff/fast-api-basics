@@ -196,44 +196,35 @@ class Todo(TodoBase):
 ## Workflow and Flowchart
 
 ### Application Flow:
+
 ```mermaid
 graph TD
-    A[Client Request] --> B{Request Type}
-    B -->|GET /todo/{id}| C[Find Todo by ID]
-    B -->|GET /todo?first_n=| D[Get Todos List]
-    B -->|POST /todo| E[Create New Todo]
-    B -->|PUT /todo/{id}| F[Update Todo]
-    B -->|DELETE /todo/{id}| G[Delete Todo]
+    A[Request] --> B{Type}
+    B --> C[GET /id]
+    B --> D[GET /]
+    B --> E[POST]
+    B --> F[PUT /id]
+    B --> G[DELETE /id]
     
-    C --> H{Todo Found?}
-    H -->|Yes| I[Return Todo]
-    H -->|No| J[Return 404 Error]
+    C --> H{Found?}
+    H --> I[200 OK]
+    H --> J[404 Error]
     
-    D --> K[Return Limited List]
+    D --> K[200 OK]
+    E --> L[Create] --> M[201 Created]
+    F --> N{Found?} --> O[200 OK]
+    N --> P[404 Error]
+    G --> Q{Found?} --> R[200 OK]
+    Q --> S[404 Error]
     
-    E --> L[Validate Input]
-    L --> M[Generate New ID]
-    M --> N[Add to Todos]
-    N --> O[Return Created Todo]
-    
-    F --> P{Todo Found?}
-    P -->|Yes| Q[Update Fields]
-    P -->|No| R[Return 404 Error]
-    Q --> S[Return Updated Todo]
-    
-    G --> T{Todo Found?}
-    T -->|Yes| U[Remove from List]
-    T -->|No| V[Return 404 Error]
-    U --> W[Return Success Message]
-    
-    I --> X[HTTP Response]
-    J --> X
-    K --> X
-    O --> X
-    S --> X
-    W --> X
-    R --> X
-    V --> X
+    I --> T[Response]
+    J --> T
+    K --> T
+    M --> T
+    O --> T
+    R --> T
+    P --> T
+    S --> T
 ```
 
 ### Data Flow:
